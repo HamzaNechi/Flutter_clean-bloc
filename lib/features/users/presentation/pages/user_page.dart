@@ -3,7 +3,6 @@ import 'package:clean/features/posts/presentation/widgets/message_display_widget
 import 'package:clean/features/users/presentation/blocs/user_bloc.dart';
 import 'package:clean/features/users/presentation/blocs/user_event.dart';
 import 'package:clean/features/users/presentation/blocs/user_state.dart';
-import 'package:clean/features/users/presentation/pages/user_add_update_page.dart';
 import 'package:clean/features/users/presentation/widgets/list_users/list_users_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,19 +12,7 @@ class UserPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("List Users"),
-      ),
-
-      floatingActionButton: FloatingActionButton(
-      onPressed: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => const UserAddUpdateWidget(isUpdate: false),));
-      },
-      child: const Icon(Icons.add), 
-      ),
-
-      body: Padding(
+    return Padding(
         padding: const EdgeInsets.all(10),
         child: BlocBuilder<UserBloc, UserState>(
           builder: (context, state) {
@@ -46,8 +33,7 @@ class UserPage extends StatelessWidget {
             );
           },
         ),
-        ),
-    );
+        );
   }
 
   Future<void> _refreshUsers(BuildContext context) async {

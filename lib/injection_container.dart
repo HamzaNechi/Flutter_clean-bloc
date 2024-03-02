@@ -1,3 +1,4 @@
+import 'package:clean/core/navigations/bottom_nav/bottom_nav_bloc/bloc/bottom_nav_bloc.dart';
 import 'package:clean/features/posts/data/datasources/post_local_datasource.dart';
 import 'package:clean/features/posts/data/datasources/post_remote_datasource.dart';
 import 'package:clean/features/posts/data/repositories/post_repositories_impl.dart';
@@ -35,6 +36,8 @@ Future<void> init() async {
       addPost: sl(), updatePost: sl(), deletePost: sl()));
   //user
   sl.registerFactory(() => UserBloc(getAllUsers: sl(), addUser: sl(), updateUser: sl(),deleteUser: sl()));
+  //bottom nav bar
+  sl.registerFactory(() => BottomNavBloc());
 
 // Usecases
   //post

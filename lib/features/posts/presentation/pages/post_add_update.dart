@@ -1,9 +1,9 @@
+import 'package:clean/core/navigations/bottom_nav/bottom_nav_screen.dart';
 import 'package:clean/core/utils/snackbar.dart';
 import 'package:clean/core/widgets/loading_widget.dart';
 import 'package:clean/features/posts/domain/entities/post.dart';
 import 'package:clean/features/posts/presentation/blocs/add_delete_update/add_delete_update_bloc.dart';
 import 'package:clean/features/posts/presentation/blocs/add_delete_update/add_delete_update_state.dart';
-import 'package:clean/features/posts/presentation/pages/post_page.dart';
 import 'package:clean/features/posts/presentation/widgets/form_post_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -41,7 +41,7 @@ class PostAddUpdatePage extends StatelessWidget {
           listener: (context, state) {
             if(state is MessageAddDeleteUpdatePostState){
               SnackbarMessage().showSuccessSnackBar(message: state.message, context: context);
-              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const PostPage(),), (route) => false);
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const BottomNavBarPage(),), (route) => false);
             }else if(state is ErrorAddDeleteUpdatePostState){
               SnackbarMessage().showErrorSnackBar(message: state.message, context: context);
             }

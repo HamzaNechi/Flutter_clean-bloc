@@ -1,10 +1,10 @@
+import 'package:clean/core/navigations/bottom_nav/bottom_nav_screen.dart';
 import 'package:clean/core/utils/snackbar.dart';
 import 'package:clean/core/widgets/loading_widget.dart';
 import 'package:clean/features/users/domain/entities/user.dart';
 import 'package:clean/features/users/presentation/blocs/user_bloc.dart';
 import 'package:clean/features/users/presentation/blocs/user_state.dart';
 import 'package:clean/features/users/presentation/pages/user_add_update_page.dart';
-import 'package:clean/features/users/presentation/pages/user_page.dart';
 import 'package:clean/features/users/presentation/widgets/detail_user/delete_dialog_user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -76,7 +76,7 @@ class UserDetailWidget extends StatelessWidget {
       listener: (context, state) {
         if(state is MessageUserState){
           SnackbarMessage().showSuccessSnackBar(message: state.message, context: context);
-          Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => const UserPage(),), (route) => false);
+          Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => const BottomNavBarPage(),), (route) => false);
         }else if (state is ErrorUserState){
           Navigator.of(context).pop();
           SnackbarMessage().showErrorSnackBar(message: state.message, context: context);
